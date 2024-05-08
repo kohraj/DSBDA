@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kohraj</title>
+    <style>
+        .Kohraj
+        {
+          background-color: black;
+          height: 510px;
+          width:390px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 70px;
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: rgb(151, 146, 146) 2px 1px 10px 1px;
+        }
+        .input-screen{
+            width: 340px;
+            height: 60px;
+            margin-left: 19px;
+            margin-top: 40px;
+            font-size: 25px;
+            border-radius: 5px;
+        }
+        .Calculator-btn{
+            height: 50px;
+            width: 53px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .number:hover
+        {
+            background-color: rgb(122, 245, 122);
+            cursor: pointer;
+            box-shadow: white 1px 1px 1px 1px;
+        }
+        .row{
+            margin-left: 27px;
+            margin-top: 15px;
+        }
+        #enter{
+            width: 120px;
+            background-color: rgb(46, 227, 46);
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #equal{
+            background-color: rgb(46, 227, 46);
+        }
+        .bg-org{
+            background-color:orange ;
+        }
+        .bg-red{
+            background-color: orangered;
+        }
+        .clear{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="Kohraj">
+         
+      <input class="input-screen" id="calculator-screen">
+
+      <div class="row">
+         <button class="Calculator-btn bg-org" onclick="input('(')">(</button>
+         <button class="Calculator-btn bg-org" onclick="input(')')">)</button>
+         <button class="Calculator-btn" id="equal" onclick="calculate()">=</button>
+         <button class="Calculator-btn bg-red" onclick="delValue()" >Del</button>
+         <button class="Calculator-btn clear" onclick="clearScreen()">Clear</button>
+      </div>
+      <div class="row">
+        <button class="Calculator-btn number" onclick="input(9)">9</button>
+        <button class="Calculator-btn number" onclick="input(8)">8</button>
+        <button class="Calculator-btn number" onclick="input(7)">7</button>
+        <button class="Calculator-btn bg-org" onclick="input('%')">%</button>
+        <button class="Calculator-btn bg-org" onclick="input('/')">/</button>
+     </div>
+     <div class="row">
+        <button class="Calculator-btn number" onclick="input(6)">6</button>
+        <button class="Calculator-btn number" onclick="input(5)">5</button>
+        <button class="Calculator-btn number" onclick="input(4)">4</button>
+        <button class="Calculator-btn bg-org" onclick="input('*')">*</button>
+        <button class="Calculator-btn bg-org" onclick="input('+')">+</button>
+     </div>
+     <div class="row">
+        <button class="Calculator-btn number" onclick="input(3)">3</button>
+        <button class="Calculator-btn number" onclick="input(2)">2</button>
+        <button class="Calculator-btn number" onclick="input(1)">1</button>
+        <button class="Calculator-btn bg-org" onclick="input('+')">+</button>
+        <button class="Calculator-btn bg-org" onclick="input('-')">-</button>
+     </div>
+     <div class="row">
+        <button class="Calculator-btn number"onclick="input(00)">00</button>
+        <button class="Calculator-btn number" onclick="input(0)">0</button>
+        <button class="Calculator-btn number" onclick="input('.')">.</button>
+        <button class="Calculator-btn" id="enter" onclick="calculate()" >Enter</button>
+        <!-- <button class="Calculator-btn">+</button> -->
+     </div>
+    </div>
+    <script>
+      function calculate()
+      {
+         var inputbox=document.getElementById("calculator-screen");
+         const ans=eval(inputbox.value);
+         inputbox.value=ans;
+      }
+      function input(val)
+      {
+        var inputbox=document.getElementById("calculator-screen");
+        inputbox.value=(inputbox.value+val);
+      }
+      function clearScreen()
+      {
+        var inputbox=document.getElementById("calculator-screen");
+        inputbox.value=" ";
+      }
+      function delValue()
+      {
+        var inputbox=document.getElementById("calculator-screen");
+        inputbox.value=inputbox.value.slice(0,-1)
+      }
+    </script>
+</body>
+</html>
